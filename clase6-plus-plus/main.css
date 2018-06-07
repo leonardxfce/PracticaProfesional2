@@ -1,0 +1,26 @@
+body{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 95% 5%;
+    margin:0;
+}
+
+#fondoDePantalla img{
+    width: 100%;
+    height: 99vh;
+}
+#barraDeInicio{
+    background-color: gray;
+    opacity: .95;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+}
+#barraDeInicio button{
+    background-color: blue;
+    color: white;
+    border:none;
+    border-radius: 1em;
+    outline: none;
+}

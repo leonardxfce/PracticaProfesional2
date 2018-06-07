@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    height: 100vh;
+}
+#menuLateral{
+    background-color: red;
+}
+#parteCentral{
+    background-color: #eee;
+    padding: 30px;
+}

@@ -1,0 +1,49 @@
+body{
+    background-color: blue;
+}
+h1{
+    color: green;
+    font-size: 20px;
+    font-style: oblique;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    transition: all 2s;
+}
+h1:hover{
+    transition: all 2s;
+    color: yellow;
+    text-shadow: red 10px 10px;
+}
+h2{
+    color: orange;
+}
+h2:hover{
+    transition: all 2s;
+    font-size: 100px;
+}
+
+h3{
+    color: darkkhaki;
+}
+h4{
+    color: darkorchid;
+    font-size: 20px;
+}
+h5{
+    color: red;
+    font-style: oblique;
+}
+img{    
+    width: 200px;
+    height: auto; 
+    border-radius: 50px;
+}
+img:hover{
+    transition: all 100s;
+    transform: rotate(360deg);
+    filter: grayscale(100%);
+}
+div{
+    height: 200px;
+    text-align: center;
+}

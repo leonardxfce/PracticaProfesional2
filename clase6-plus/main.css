@@ -1,0 +1,26 @@
+body{
+    display: grid;
+    grid-template-columns: 10% auto;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#side{
+    padding: 1em;
+    background-color: black;
+    color:white;
+}
+#center{
+    padding: 1em;
+    background-color:#eee;
+}
+h1{
+    font-size: 5em;
+}
+#center input{
+    font-size: 2em;
+}
+ul{
+    padding: 0 1em;
+    list-style: none;
+}
