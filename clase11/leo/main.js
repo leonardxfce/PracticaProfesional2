@@ -1,54 +1,44 @@
-function crearCartaPokemon(e) {
-    const html = `
-        <div class="col-2">
-            <div class="card">
-                <img class="card-img-top" src="${e.sprites.front_default}" alt="">
-                <div class="card-body text-center">
-                    <h4 class="card-title">${e.pokemon.name}</h4>
-                </div>
-            </div>
-        </div>
-        `;
-    $(html)
-        .hide()
-        .appendTo("#galeria")
-        .fadeIn();
-}
+window.onload = iniciar;
 
-function notificarError() {
-    const html = `
-    <div class="invalid-feedback">
-        Pokemon no existente o error de Red
-    </div>
-    `;
-    $("input")
-        .addClass("is-invalid")
-        .after(html);
-    setTimeout(quitarError, 2000);
-}
-
-function quitarError() {
-    $("input").removeClass("is-invalid");
-    $(".invalid-feedback").remove();
-
+function iniciar() {
+    $(".container").on("search", "input", buscarPokemon);
+    $(".container").on("click", ".col-2", borrarPokemon);
 }
 
 function buscarPokemon() {
-    const nombre = $("input").val();
-    const config = {
+    const nombreEscrito = $("input").val();
+    const configuracion = {
         type: "get",
-        url: `https://pokeapi.co/api/v2/pokemon-form/${nombre}/`,
+        url: `https://pokeapi.co/api/v2/pokemon-form/${nombreEscrito}/`,
     };
-    $.ajax(config)
-        .done(crearCartaPokemon)
-        .fail(notificarError);
-    $("input")
-        .val(null)
-        .focus();
+    const request = $.ajax(configuracion);
+    request.done(crearPokemon);
+    request.fail(mostrarFallo);
+    $("input").val(null);
+    $("input").focus();
 }
 
-function iniciar() {
-    $("input").on("search", buscarPokemon);
+function crearPokemon(response) {
+    const URLdeLaImagen = response.sprites.front_default;
+    const nombreDelPokemon = response.pokemon.name;
+    const html = `
+        <div class="col-2">
+            <div class="card">
+                <img class="card-img-top" src="${URLdeLaImagen}" >
+                <div class="card-body text-center">
+                    <h4 class="card-title">${nombreDelPokemon}</h4>
+                </div>
+            </div>
+        </div>
+    `;
+    $(html).appendTo("#galeria")
 }
 
-$(iniciar);
+function mostrarFallo() {
+    alert("Ese pokemon no existe o no hay Internet");
+}
+
+function borrarPokemon(evento) {
+    const elementoClicleado = evento.currentTarget;
+    $(elementoClicleado).remove();
+}
