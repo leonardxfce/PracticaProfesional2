@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="bootstrap/js/jquery.js"></script>
+</head>
+
+<body class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-1">
+                Hola Mundo
+            </h1>
+            <input type="text" class="form-control" placeholder="Ingrse su nombre">
+            <button class="btn btn-primary">
+                clicks
+            </button>
+        </div>
+    </div>
+    <script>
+        // $ ---> Siginfica JQuery
+        // $(".display-1").fadeOut(); oculta el elemento
+        // $(".display-1").fadeIn();  muestra el elemnto
+        // $(".display-1").slideUp(); oculta hacia arriba el elemento
+        // $(".display-1").slideDown(); muestra el contenido desde arriba
+        // $(" selector CSS ") ---> forma tipica de Seleccionar
+        //  .class --> clases de CSS
+        //  #id --> id de CSS
+        //  h1 --> nombre de la etiqueta
+        //  li:first
+        //  li:last
+        // $("input").attr("placeholder","Ingrese aqui su nombre"); attr --> atributo del html
+        // $("input").attr("type","color"); cambiando 
+        // $("h1").removeClass("display-1"); quitar clases de los html
+        // Programacion basada en Eventos
+        function nombreDeFuncion (evento){
+            const valor = $("input").val();
+            const html = "<h2>" + valor  + "</h2>";
+            $("h1").after(html);
+            $("input").val(null);
+            $("input").focus();
+        }        
+        $("button").on("click",nombreDeFuncion);
+        // $("input").on("keyup", nombreDeFuncion); identifica un tipo de evento con una funcion
+    </script>
+</body>
+
+</html>     
