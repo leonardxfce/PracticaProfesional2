@@ -4,7 +4,9 @@ const agregrarItem = function () {
     $("#listado").append(html);
     $("#cajaDeTexto").focus().val('');
 };
-const quitarItem = e => $(e.currentTarget).addClass("list-group-item-danger").fadeOut();
+const quitarItem = e => $(e.currentTarget)
+    .addClass("list-group-item-danger")
+    .fadeOut();
 
 $("#botoncito").on('click', agregrarItem);
 $('.list-group').on('click', '.list-group-item', quitarItem);
