@@ -1,9 +1,14 @@
+body {
+    background-color: rebeccapurple;
+}
+
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
 }
-.card{
+
+.card {
     display: none;
 }
