@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>A minimal example slide of reveal.js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/night.css" />
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>H1 element</h1>
+                text...
+            </section>
+            <section>
+                <h2>H2 element</h2>
+                <p>A paragraph...</p>
+                <ul>
+                    <li>Item-1</li>
+                    <li>Item-2</li>
+                    <li>Item-3</li>
+                </ul>
+            </section>
+            <section>
+                <section>
+                    <h3>H3 element</h3>
+                    <blockquote>Wanna insert a famous quote ...</blockquote>
+                </section>
+                <section>
+                    <h3>Basement</h3>
+                </section>
+                <section>
+                    Where am I?
+                </section>
+            </section>
+            <section>
+                <h4>H4 element</h4>
+                <p>Another paragraph ...</p>
+            </section>
+            <section>
+                The end.
+            </section>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+    <script src="index.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script>
+        if (annyang) {
+            var commands = {
+                'hola': function() { Reveal.next() }
+            };
+            annyang.addCommands(commands);
+            annyang.start();
+        }
+    </script> 
+</body>
+</html>
