@@ -1,13 +1,15 @@
 function probarPrimerPokemon(assert) {
-    var done = assert.async();
-    $("input").val(1);
-    $("input").trigger("search");
-    const fe = function () {
-        const cantidad = $(".card").length;
-        assert.equal(cantidad,1);
+    const done = assert.async();
+    const input = new jQuery("input");
+    input.val(1);
+    input.trigger("search");
+    const comprobarDiv = function () {
+        const carta = new jQuery(".card");
+        const cantidad = carta.length;
+        assert.equal(cantidad, 1);
         done();
     };
-    setTimeout(fe,1000);
+    setTimeout(comprobarDiv, 2000);
 }
 
 QUnit.test("muestra un pokemon", probarPrimerPokemon);

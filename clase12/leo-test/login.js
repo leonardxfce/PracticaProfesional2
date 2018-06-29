@@ -1,8 +1,9 @@
 // con esta linea le decimos que funcion 
 // debe ejecutar al cargar (load) la pagina
-window.onload = incio; 
+window.onload = incio;
 
 // "equivalente" a public static void main
 function incio() {
-    $(".card").slideDown();
+    const carta = new jQuery(".card");
+    carta.slideDown();
 }

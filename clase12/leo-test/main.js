@@ -1,21 +1,23 @@
 window.onload = iniciar;
 
 function iniciar() {
-    $(".container").on("search", "input", buscarPokemon);
-    $(".container").on("click", ".col-2", borrarPokemon);
+    const contenedor = new jQuery(".container");
+    contenedor.on("search", "input", buscarPokemon);
+    contenedor.on("click", ".col-2", borrarPokemon);
 }
 
 function buscarPokemon() {
-    const nombreEscrito = $("input").val();
+    const input = new jQuery("input");
+    const nombreEscrito = input.val();
     const configuracion = {
         type: "get",
         url: `https://pokeapi.co/api/v2/pokemon-form/${nombreEscrito}/`,
     };
-    const request = $.ajax(configuracion);
+    const request = jQuery.ajax(configuracion);
     request.done(crearPokemon);
     request.fail(mostrarFallo);
-    $("input").val(null);
-    $("input").focus();
+    input.val(null);
+    input.focus();
 }
 
 function crearPokemon(response) {
@@ -31,7 +33,8 @@ function crearPokemon(response) {
             </div>
         </div>
     `;
-    $(html).appendTo("#galeria")
+    const nuevoDiv = new jQuery(html);
+    nuevoDiv.appendTo("#galeria");
 }
 
 function mostrarFallo() {
@@ -40,5 +43,6 @@ function mostrarFallo() {
 
 function borrarPokemon(evento) {
     const elementoClicleado = evento.currentTarget;
-    $(elementoClicleado).remove();
+    const item = new jQuery(elementoClicleado);
+    item.remove();
 }
