@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing QUnit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/night.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Testing de Javascript con Qunit</h1>
+                <span>Leonardo Araoz</span>
+            </section>
+            <section>
+                <h2>2 +2 = 4 ... previsible, no?</h2>
+                <p class="fragment">La motivacion principal del testing es definir previsibilidad de nuestro software</p>
+            </section>
+
+            <section>
+                <h1>▲</h1>
+                <p class="fragment">En el triangulo de la Calidad del Software encontramos 3 elementos.</p>
+                <p class="fragment">Para que la calidad de nuestro sistema sea sostenible se deben realizar pruebas del él</p>
+            </section>
+            <section>
+                <h2>Tipos de Pruebas</h2>
+                <p>Probar el software es una actividad compleja y que abarca distintos ambitos</p>
+                <ul>
+                    <li class="fragment">Pruebas Unitarias</li>
+                    <li class="fragment">Pruebas de Integracion</li>
+                    <li class="fragment">Pruebas Funcionales</li>
+                </ul>
+            </section>
+            <section>
+                <img src="piramid.png">
+            </section>
+            <section>
+                <h2>Lenguajes de Progamacion + Testing</h2>
+                <p>Familia xUnit</p>
+                <ul>
+                    <li>Java ==> JUnit</li>
+                    <li>PHP ==> PHPUnit</li>
+                    <li>HTML ==> HTMLUnit</li>
+                    <li>
+                        <b>Javascript ==> Qunit</b>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Qunit</h2>
+                <p class="fragment">
+                    Qunit es un "primo" de JQuery y es una herramienta que funciona como pagina web para mostrar los resltados de los test
+                </p>
+                <pre class="javascript">
+                    <code data-trim data-noescape class="fragment">
+                        function sumar(a,b){
+                            return a + b;
+                        }
+
+                        function probarSuma(assert){
+                            const resultado = sumar(2,2);
+                            assert.equal(4,resultado);
+                        }
+
+                        Qunit.test("la funcion SUMAR devuelve 4",probarSuma);
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h6>Codigo minimo de funcionamiento</h6>
+                <pre>
+                    <code data-trim data-noescape class="html" style="max-height: 675px !important">
+                        &lt;!DOCTYPE html&gt;
+                        &lt;html&gt;
+                        &lt;head&gt;
+                          &lt;meta charset=&quot;utf-8&quot;&gt;
+                          &lt;title&gt;QUnit basic example&lt;/title&gt;
+                          &lt;meta 
+                            name=&quot;viewport&quot; 
+                            content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+                          &lt;link 
+                            rel=&quot;stylesheet&quot; 
+                            href=&quot;https://code.jquery.com/qunit/qunit-2.6.1.css&quot;&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                          &lt;div id=&quot;qunit&quot;&gt;&lt;/div&gt;
+                          &lt;div id=&quot;qunit-fixture&quot;&gt;&lt;/div&gt;
+                          &lt;script 
+                            src=&quot;https://code.jquery.com/qunit/qunit-2.6.1.js&quot;&gt;&lt;/script&gt;
+                          &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+                          &lt;script src=&quot;test.js&quot;&gt;&lt;/script&gt;
+                        &lt;/body&gt;
+                        &lt;/html&gt;
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h6>Pasos necesarios para crear un entorno de pruebas</h6>
+                <ul>
+                    <li>En la carpeta 12 crear una carpeta con su nombre</li>
+                    <li>Dentro de ella crear los siguientes archivos</li>
+                    <ul>
+                        <li>
+                            <b>index.html</b> ==> Pagina para mostrar los resultados</li>
+                        <li>
+                            <b>main.js</b> ==> Codigo Normal</li>
+                        <li>
+                            <b>test.js</b> ==> Codigo de pruebas</li>
+                    </ul>
+                    <li>Levantar el
+                        <b>live-server</b>
+                        desde el archivo
+                        <b>index.html</b> ==> por ejemplo
+                        <i>/leo/index.html</i>
+                    </li>
+                    <li>En
+                        <b>test.js</b> pegar el codigo de ejemplo</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Vamos a hacerlo!!!</h1>
+            </section>
+            <section>
+                <h3>funciones basicas de Qunit</h3>
+                <ul>
+                    <li>
+                        <code class="javascript">assert.equal(valor1,valor2);</code>
+                    </li>
+                    <ul>
+                        <li> es igual valor1 a valor2?</li>
+                    </ul>
+                    <li>
+                        <code class="javascript">assert.notEqual(valor1,valor2);</code>
+                    </li>
+                    <ul>
+                        <li> NO es igual valor1 a valor2?</li>
+                    </ul>
+                    <li>
+                        <code class="javascript">assert.ok(valor1);</code>
+                    </li>
+                    <ul>
+                        <li>El valor1 esta ok (es
+                            <b>true</b>)?</li>
+                    </ul>
+                </ul>
+            </section>
+            <section>
+                <h2>Ejercicios</h2>
+                <ul>
+                    <li>Crear un codigo para restar y testearlo</li>
+                    <li>Crear un codigo que calcule numeros primos y testearlo</li>
+                    <li>Crear un codigo que cuente las vocales de una palabra y testearlo</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Como testear interfaces de usuario?</h2>
+                <p>
+                    Gran parte de los ejemplos de testing se basan en logica de programacion simple, por ejemplo sumas.
+                </p>
+                <p>
+                    Para testear eventos o cambios de interfaz se debe utilizar algo mas de codigo
+                </p>
+                <hr>
+                <b>Repasemos algunas funciones de JQuery</b>
+            </section>
+            <section>
+                <h2>Funciones tipicas de JQuery</h2>
+                <pre>
+                    <code class="javascript" data-noescape data-trim>
+                        // muestra el elmento 'input'
+                        $("input").fadeIn(); 
+                        // pone al input el valor pepe
+                        $("input").val("pepe"); 
+                        // quita de la pagina el elemento
+                        $("input").remove();
+                        // Pone dentro del div un h1 con la palabra Hola
+                        $("div").html("&lth1&gtHola&lt/h1&gt"); 
+                        // Le pone un evento al boton
+                        $("button").on("click",hacerUnaFuncion);
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Generando eventos Programaticamente</h3>
+                <p>
+                    JQuery nos provee la funcion
+                    <code>trigger()</code> para
+                    <b>simular</b> eventos como por ejemplo el evento
+                    <b>click</b>
+                </p>
+                <pre>
+                    <code class="javascript" data-trim>
+                        // Le ponemos un evento al boton
+                        $("button").on("click",hacerUnaFuncion);
+                        // Hacemos "click" desde Javascript
+                        $("button").trigger("click");
+                    </code>
+                </pre>
+                <p>
+                    Si juntamos este concepto a la funcion
+                    <code>val()</code> podemos completar formularios automaticamente y luego hacer click sin intervenir como usuarios
+                </p>
+            </section>
+            <section>
+                <h2>Ejercicios</h2>
+                <ul>
+                    <li>Testear el codigo de Pokemon para cuando falla y cuando muestra un pokemon</li>
+                    <li>Testear el codigo del login que muestre el DIV correspondiente para cada caso</li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
