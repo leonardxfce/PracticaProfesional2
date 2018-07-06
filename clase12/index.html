@@ -14,7 +14,7 @@
     <div class="reveal">
         <div class="slides">
             <section>
-                <h1>Testing de Javascript con Qunit</h1>
+                <h1>Testing de Javascript con QUnit</h1>
                 <span>Leonardo Araoz</span>
             </section>
             <section>
@@ -40,21 +40,55 @@
                 <img src="piramid.png">
             </section>
             <section>
-                <h2>Lenguajes de Progamacion + Testing</h2>
+                <h5>Pasos para desarrollar un test</h5>
+                <ol>
+                    <li>
+                        Interpretar el enunciado
+                    </li>
+                    <ul>
+                        <li>
+                            <i>el sistema debe realizar multiplicaciones</i>
+                        </li>
+                    </ul>
+                    <li>Definir casos de prueba y sus comprobaciones</li>
+                    <ul>
+                        <li>
+                            <i>Cuando se multiplique 4 por 5 el resultado debe ser 20</i>
+                        </li>
+
+                    </ul>
+                    <li>
+                        Definir casos de prueba que pueden dar error
+                        <ul>
+                            <li>
+                                <i>Cuando se multiplique 0 por 5 el resultado debe ser 0</i>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Realizar el codigo del test escribiendo cada uno de los casos de prueba y sus posibles resultados
+                    </li>
+                    <li>
+                        Realizar el codigo que satisfaga los casos de prueba
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>Herramientas de Testing</h2>
                 <p>Familia xUnit</p>
                 <ul>
                     <li>Java ==> JUnit</li>
                     <li>PHP ==> PHPUnit</li>
                     <li>HTML ==> HTMLUnit</li>
                     <li>
-                        <b>Javascript ==> Qunit</b>
+                        <b>Javascript ==> QUnit</b>
                     </li>
                 </ul>
             </section>
             <section>
-                <h2>Qunit</h2>
+                <h3>QUnit</h3>
                 <p class="fragment">
-                    Qunit es un "primo" de JQuery y es una herramienta que funciona como pagina web para mostrar los resltados de los test
+                    QUnit es un "primo" de JQuery y es una herramienta que funciona como pagina web para mostrar los resltados de los test
                 </p>
                 <pre class="javascript">
                     <code data-trim data-noescape class="fragment">
@@ -65,9 +99,13 @@
                         function probarSuma(assert){
                             const resultado = sumar(2,2);
                             assert.equal(4,resultado);
+                            const resultado = sumar(1,1);
+                            assert.equal(2,resultado);
+                            const resultado = sumar(10,-10);
+                            assert.equal(0,resultado);
                         }
 
-                        Qunit.test("la funcion SUMAR devuelve 4",probarSuma);
+                        QUnit.test("probando funcion SUMAR",probarSuma);
                     </code>
                 </pre>
             </section>
@@ -85,19 +123,23 @@
                             content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
                           &lt;link 
                             rel=&quot;stylesheet&quot; 
-                            href=&quot;https://code.jquery.com/qunit/qunit-2.6.1.css&quot;&gt;
+                            href=&quot;https://code.jquery.com/QUnit/QUnit-2.6.1.css&quot;&gt;
                         &lt;/head&gt;
                         &lt;body&gt;
-                          &lt;div id=&quot;qunit&quot;&gt;&lt;/div&gt;
-                          &lt;div id=&quot;qunit-fixture&quot;&gt;&lt;/div&gt;
+                          &lt;div id=&quot;QUnit&quot;&gt;&lt;/div&gt;
+                          &lt;div id=&quot;QUnit-fixture&quot;&gt;&lt;/div&gt;
                           &lt;script 
-                            src=&quot;https://code.jquery.com/qunit/qunit-2.6.1.js&quot;&gt;&lt;/script&gt;
+                            src=&quot;https://code.jquery.com/QUnit/QUnit-2.6.1.js&quot;&gt;&lt;/script&gt;
                           &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
                           &lt;script src=&quot;test.js&quot;&gt;&lt;/script&gt;
                         &lt;/body&gt;
                         &lt;/html&gt;
                     </code>
                 </pre>
+            </section>
+
+            <section>
+                <h1>Momento de hacer tarea!!!</h1>
             </section>
             <section>
                 <h6>Pasos necesarios para crear un entorno de pruebas</h6>
@@ -106,27 +148,30 @@
                     <li>Dentro de ella crear los siguientes archivos</li>
                     <ul>
                         <li>
-                            <b>index.html</b> ==> Pagina para mostrar los resultados</li>
+                            <b>index.html</b> ==> Resultados de los test</li>
                         <li>
                             <b>main.js</b> ==> Codigo Normal</li>
                         <li>
                             <b>test.js</b> ==> Codigo de pruebas</li>
                     </ul>
+                    <li>En
+                        <b>test.js</b> pegar el
+                        <a href="/#/6/">codigo de ejemplo</a>
+                    </li>
+                    <li>En
+                        <b>index.html</b> pegar el
+                        <a href="/#/7/">codigo minimo de funcionamiento</a>
+                    </li>
                     <li>Levantar el
                         <b>live-server</b>
                         desde el archivo
                         <b>index.html</b> ==> por ejemplo
                         <i>/leo/index.html</i>
                     </li>
-                    <li>En
-                        <b>test.js</b> pegar el codigo de ejemplo</li>
                 </ul>
             </section>
             <section>
-                <h1>Vamos a hacerlo!!!</h1>
-            </section>
-            <section>
-                <h3>funciones basicas de Qunit</h3>
+                <h3>funciones basicas de QUnit</h3>
                 <ul>
                     <li>
                         <code class="javascript">assert.equal(valor1,valor2);</code>
@@ -145,7 +190,8 @@
                     </li>
                     <ul>
                         <li>El valor1 esta ok (es
-                            <b>true</b>)?</li>
+                            <b>true</b>)?
+                        </li>
                     </ul>
                 </ul>
             </section>
@@ -209,8 +255,8 @@
             <section>
                 <h2>Ejercicios</h2>
                 <ul>
-                    <li>Testear el codigo de Pokemon para cuando falla y cuando muestra un pokemon</li>
                     <li>Testear el codigo del login que muestre el DIV correspondiente para cada caso</li>
+                    <li>Testear el codigo de Pokemon para cuando falla y cuando muestra un pokemon</li>
                 </ul>
             </section>
 
